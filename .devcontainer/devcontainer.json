@@ -1,0 +1,32 @@
+{
+  "name": "golang-development",
+  "image": "mcr.microsoft.com/devcontainers/go",
+  "forwardPorts": [
+    8080
+  ],
+  "containerEnv": {},
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/go:1": {},
+    "ghcr.io/devcontainers-contrib/features/protoc:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.vscode-github-actions",
+        "golang.go",
+        "mhutchie.git-graph",
+        "pbkit.vscode-pbkit"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file",
+        "editor.tabSize": 2,
+        "files.eol": "\n",
+        "files.insertFinalNewline": true
+      }
+    }
+  }
+}
