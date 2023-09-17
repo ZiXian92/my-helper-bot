@@ -28,5 +28,6 @@
         "files.insertFinalNewline": true
       }
     }
-  }
+  },
+  "postCreateCommand": "bash scripts/install-dev-tools.sh"
 }
