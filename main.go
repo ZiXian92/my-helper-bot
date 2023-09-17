@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -39,7 +38,6 @@ func main() {
 
 	// Create a router using gorilla/mux
 	router := mux.NewRouter()
-	router.HandleFunc("/health", healthHandler)
 
 	// Start an HTTP server
 	httpServer := &http.Server{
@@ -119,9 +117,4 @@ func main() {
 	}
 
 	log.Info().Msg("Your Go application has gracefully stopped")
-}
-
-func healthHandler(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	fmt.Fprintln(w, "OK")
 }
