@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./plugins/proto";
+
+message Empty {}
+
+message StringList {
+  repeated string values = 1;
+}

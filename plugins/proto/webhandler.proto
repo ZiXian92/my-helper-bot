@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package interfaces;
+
+option go_package = "./plugins/proto";
+
+import "proto/common.proto";
+
+// Define a message for a WebEndpoint.
+message WebEndpoint {
+  string name = 1;
+  repeated string methods = 2;
+  string path = 3;
+}
+
+// Define a message for WebRequest.
+message WebRequest {
+  string endpoint_name = 1;
+  map<string, proto.StringList> headers = 2;
+  map<string, string> uri_params = 3;
+  map<string, proto.StringList> query_params = 4;
+  bytes body = 5;
+}
+
+// Define a message for WebResponse.
+message WebResponse {
+  int32 code = 1;
+  map<string, proto.StringList> headers = 2;
+  bytes body = 3;
+}
+
+// Define a service for WebHandler.
+service WebHandler {
+  rpc GetEndpoints(proto.Empty) returns (WebEndpointList);
+  rpc HandleRequest(WebRequest) returns (WebResponse);
+}
+
+// Define a message for a list of WebEndpoints.
+message WebEndpointList {
+  repeated WebEndpoint endpoints = 1;
+}
